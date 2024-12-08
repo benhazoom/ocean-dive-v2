@@ -8,14 +8,15 @@ const Fish: React.FC = () => {
       className="fixed pointer-events-none"
       initial={{ x: '-100%', y: '50%' }} // Start off-screen to the left, vertically centered
       animate={{
-        x: ['0%', '2000%', '2000%', '0%'], // Swim horizontally back and forth
-        y: ['30%', '70%', '40%', '60%'], // Simulate vertical swimming motion
+        x: ['20%', '2000%'], // Swim horizontally from left to beyond the right
+        y: ['30%', '70%', '40%', '30%'], // Simulate vertical swimming motion
         rotate: [0, 10, -10, 5, -5, 0], // Gentle rotation for a realistic swimming effect
       }}
       transition={{
-        x: { duration: 300, repeat: Infinity, ease: 'linear' }, // Constant horizontal movement
-        y: { duration: 80, repeat: Infinity, ease: 'easeInOut' }, // Smooth vertical oscillation
+        x: { duration: 100, repeat: Infinity, ease: 'linear' }, // Constant horizontal movement
+        y: { duration: 40, repeat: Infinity, ease: 'easeInOut' }, // Smooth vertical oscillation
         rotate: { duration: 6, repeat: Infinity, ease: 'linear' }, // Continuous rotation
+        repeatType: 'loop', // Makes the animation reset instead of reversing
       }}
     >
       <svg width="100%" height="90" viewBox="0 0 50 30" xmlns="http://www.w3.org/2000/svg">

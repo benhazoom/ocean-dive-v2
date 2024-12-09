@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { Play, Pause } from 'lucide-react'
 import Bubble from './Bubble'
 import Fish from './Fish'
+import Whale from './Whale'
 import useAutoScroll from '../hooks/useAutoScroll'
 
 const OceanDive: React.FC = () => {
@@ -48,7 +49,7 @@ const OceanDive: React.FC = () => {
       
       {/* Single Fish */}
       <Fish />
-      
+      <Whale text="Here we " imageSrc="\images\whale-no-bg.png" offsetY='mt-128 pt-128 ' />
       {/* Bubbles */}
       {/* doing motion-parallex transformation on the y-axis when scrollYProgress is between 0.3 and 0.5 of the screen height */}
       {/* the transition will be apllaied from 20 viewport height to 20 20 viewport height because we dont want big bubbles to move*/}

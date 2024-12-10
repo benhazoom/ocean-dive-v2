@@ -3,10 +3,10 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Play, Pause } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+// import { Button } from '@/components/ui/button'
 import Bubble from './Bubble'
 import Fish from './Fish'
-import useAutoScroll from '../hooks/useAutoScroll'
+// import useAutoScroll from '../hooks/useAutoScroll'
 
 const OceanDive: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -23,15 +23,15 @@ const OceanDive: React.FC = () => {
     ['hsl(200, 100%, 50%)', 'hsl(200, 100%, 0%)']
   )
 
-  const { startAutoScroll, stopAutoScroll } = useAutoScroll(containerRef)
+  // const { startAutoScroll, stopAutoScroll } = useAutoScroll(containerRef)
 
-  useEffect(() => {
-    if (isPlaying) {
-      startAutoScroll()
-    } else {
-      stopAutoScroll()
-    }
-  }, [isPlaying, startAutoScroll, stopAutoScroll])
+  // useEffect(() => {
+  //   if (isPlaying) {
+  //     startAutoScroll()
+  //   } else {
+  //     stopAutoScroll()
+  //   }
+  // }, [isPlaying, startAutoScroll, stopAutoScroll])
 
   const handlePlayPause = () => {
     setIsPlaying(!isPlaying)
@@ -63,7 +63,7 @@ const OceanDive: React.FC = () => {
         </video>
       </Bubble>
       
-      {/* Play/Pause Button */}
+      {/* Play/Pause Button
       <div className="fixed bottom-4 left-4 z-10 flex gap-2">
         <Button onClick={handlePlayPause}>
           {isPlaying ? (
@@ -76,8 +76,8 @@ const OceanDive: React.FC = () => {
             </>
           )}
         </Button>
-      </div>
-    </div>
+      </div>*/}
+    </div> 
   )
 }
 

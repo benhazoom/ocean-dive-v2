@@ -13,7 +13,7 @@ const Bubble: React.FC<BubbleProps> = ({ children, y, x, size = 'medium' }) => {
     small: 'h-[10rem] w-[10rem]',
     medium: 'h-[20rem] w-[20rem]',
     large:'h-[25rem] w-[25rem]',
-    xl:'h-[35rem] w-[35rem]'
+    xl:'h-[40rem] w-[40rem]'
   }
 
   return (

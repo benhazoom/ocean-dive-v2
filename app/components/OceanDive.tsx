@@ -6,6 +6,7 @@ import { Play, Pause } from 'lucide-react'
 import Bubble from './Bubble'
 import Fish from './Fish'
 import Whale from './Whale'
+import PlayPauseButton from './ui/button'
 import useAutoScroll from '../hooks/useAutoScroll'
 
 const OceanDive: React.FC = () => {
@@ -22,10 +23,10 @@ const OceanDive: React.FC = () => {
   const waterColor = useTransform(
     scrollYProgress,
     [0, 1],
-    ['hsl(200, 100%, 50%)', 'hsl(200, 100%, 0%)']
+    ['hsl(200, 100%, 70%)', 'hsl(200, 100%, 20%)']
   )
 
-  const { startAutoScroll, stopAutoScroll } = useAutoScroll(containerRef)
+  const { startAutoScroll, stopAutoScroll } = useAutoScroll(scrollYProgress);
 
   useEffect(() => {
     if (isPlaying) {
@@ -40,7 +41,8 @@ const OceanDive: React.FC = () => {
   }
 
   return (
-    <div ref={containerRef} className="h-[300vh] overflow-y-auto relative">
+<div  ref={containerRef} style={{ height: '3000px' }}>
+{/* <div className="overflow-y-auto relative"> */}
       {/* Water */}
       <motion.div
         className="fixed inset-0 bg-blue-500"
@@ -97,13 +99,29 @@ const OceanDive: React.FC = () => {
           Your browser does not support the video tag.
         </video>
       </Bubble> */}
+
+
+            {/* Play/Pause Button */}
+            <div className="fixed bottom-4 left-4 z-10 flex gap-2">
+        <PlayPauseButton onClick={handlePlayPause}>
+          {isPlaying ? (
+            <>
+              <Pause className="mr-2 h-4 w-4" /> Pause
+            </>
+          ) : (
+            <>
+              <Play className="mr-2 h-4 w-4" /> Play
+            </>
+          )}
+        </PlayPauseButton>
+      </div>
       
 
 
 
-    </div>
+         </div>
+    // </div>
   )
 }
 
 export default OceanDive
-

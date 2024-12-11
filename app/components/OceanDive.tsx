@@ -41,7 +41,11 @@ const OceanDive: React.FC = () => {
   }
 
   return (
+
+
 <div  ref={containerRef} style={{ height: '3000px' }}>
+<title>Ocean Dive</title>
+
 {/* <div className="overflow-y-auto relative"> */}
       {/* Water */}
       <motion.div
@@ -51,7 +55,6 @@ const OceanDive: React.FC = () => {
       
       {/* Single Fish */}
       <Fish />
-      <Whale text="Here we " imageSrc="\images\whale-no-bg.png" offsetY='mt-128 pt-128 ' />
       {/* Bubbles */}
       {/* doing motion-parallex transformation on the y-axis when scrollYProgress is between 0.3 and 0.5 of the screen height */}
       {/* the transition will be apllaied from 20 viewport height to 20 20 viewport height because we dont want big bubbles to move*/}
@@ -67,12 +70,16 @@ const OceanDive: React.FC = () => {
         <h3 className="font-bold">A parallax effect</h3>
         <p className="text-sm text-center">is when background and foreground elements move at different speeds as a user scrolls or interacts with a page. This creates an illusion of depth and 3D space, making the experience more dynamic and immersive.</p>
       </Bubble>
-
-
-
-      <Bubble y={useTransform(scrollYProgress, [0,0], ['120vh', '120vh'])} x="60vw" size="xl">
-        <h2 className="text-xl font-bold">Testing bubble2!</h2>
+      <Bubble y={useTransform(scrollYProgress, [0,0], ['210vh', '210vh'])} x="60vw" size="large">
+        <h2 className="text-md font-bold text-center">See how the background color darkens as we dive down ?</h2>
       </Bubble>
+
+      <div style={{ height: '600px' }}></div>
+
+      <Whale text="Im a text container " imageSrc="\images\whale-no-bg.png" offsetY='mt-128 pt-128 ' />
+
+
+
       <Bubble y={useTransform(scrollYProgress, [0,0], ['220vh', '220vh'])} x="20vw" size="xl">
         <h2 className="text-xl font-bold">Testing bubble3!</h2>
       </Bubble>

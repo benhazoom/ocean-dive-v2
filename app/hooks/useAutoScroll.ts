@@ -13,7 +13,7 @@ const useAutoScroll = (scrollYProgress: any) => {
 
       // Check if the window has not scrolled to the bottom
       if (scrollY + innerHeight < scrollHeight) {
-        window.scrollBy(0, 10); // Scroll the screen down by 1px
+        window.scrollBy(0, 1); // Scroll the screen down by 1px
 
         // Calculate the scroll progress as a value between 0 and 1
         const progress = scrollY / (scrollHeight - innerHeight);

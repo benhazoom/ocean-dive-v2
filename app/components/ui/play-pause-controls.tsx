@@ -1,37 +1,46 @@
-"use client"
+"use client";
 
-import React, { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Button } from "./Button2"
-import { Play, Pause } from 'lucide-react'
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "./Button2";
+import { Play, Pause } from "lucide-react";
+import useAutoScroll from "../../hooks/useAutoScroll"; // Ensure correct path
 
-interface PlayPauseControlsProps {
-  onClick?: () => void;
-  // speed: number;
-}
+const PlayPauseControls: React.FC = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [autoScrollSpeed, setAutoScrollSpeed] = useState(1);
+  const scrollYProgress = {
+    set: (progress: number) => {
+      console.log("Scroll progress:", progress);
+    },
+  };
 
-const PlayPauseControls: React.FC<PlayPauseControlsProps> = ({ onClick }) => {
-// export default function PlayPauseControls() {
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [autoScrollSpeed,setAutoScrollSpeed] = useState(1);
+  // Use the hook
+  const { startAutoScroll, stopAutoScroll } = useAutoScroll(scrollYProgress, autoScrollSpeed);
+
+  // Effect to handle play/pause toggling
+  useEffect(() => {
+    if (isPlaying) {
+      startAutoScroll();
+    } else {
+      stopAutoScroll();
+    }
+    // Clean up when the component unmounts or when auto-scroll stops
+    return () => stopAutoScroll();
+  }, [isPlaying, startAutoScroll, stopAutoScroll]);
+
+  // Force autoScrollSpeed to be between 1-5
+  const handleSlower = () => {
+    if (autoScrollSpeed > 1) setAutoScrollSpeed(autoScrollSpeed - 1);
+  };
+
+  const handleFaster = () => {
+    if (autoScrollSpeed < 5) setAutoScrollSpeed(autoScrollSpeed + 1);
+  };
 
   const togglePlayPause = () => {
-    setIsPlaying(!isPlaying)
-    if (onClick) onClick();
-  }
-
-  //forcing autoScrollSpeed to be between 1-5
-  const handleSlower = () => {
-    if(autoScrollSpeed>1)
-      setAutoScrollSpeed(autoScrollSpeed-1);
-    // console.log("Slowing down - current speed "+autoScrollSpeed)
-  }
-  
-  const handleFaster = () => {
-    if(autoScrollSpeed<5)
-      setAutoScrollSpeed(autoScrollSpeed+1);
-    // console.log("Speeding up - current speed "+autoScrollSpeed)
-  }
+    setIsPlaying(!isPlaying);
+  };
 
   return (
     <div className="flex items-center justify-center space-x-2 p-4">
@@ -81,9 +90,7 @@ const PlayPauseControls: React.FC<PlayPauseControlsProps> = ({ onClick }) => {
         )}
       </AnimatePresence>
     </div>
-  )
-}
+  );
+};
 
 export default PlayPauseControls;
-
-

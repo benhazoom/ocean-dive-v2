@@ -2,23 +2,25 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Play, Pause } from 'lucide-react'
 import Bubble from './Bubble'
 import Fish from './Fish'
 import Whale from './Whale'
-import PlayPauseButton from './ui/button'
-// import useAutoScroll,startAutoScroll, stopAutoScroll from '../hooks/useAutoScroll'
 import PlayPauseControls from "./ui/play-pause-controls"
 
 const OceanDive: React.FC = () => {
+  
+  // Scroll to the top of the page on component mount (or refresh)
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
   const [isPlaying, setIsPlaying] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start', 'end start']
   })
-  const [autoScrollSpeed] = useState<number>(1);
-
 
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
 
@@ -29,21 +31,6 @@ const OceanDive: React.FC = () => {
     ['hsl(200, 100%, 70%)', 'hsl(200, 100%, 20%)']
   )
 
-  // const {  } = useAutoScroll(scrollYProgress,autoScrollSpeed);
-
-  // useEffect(() => {
-  //   if (isPlaying) {
-  //     console.log("start")
-  //     startAutoScroll()
-  //   } else {
-  //     console.log("stop")
-  //     stopAutoScroll()
-  //   }
-  // }, [isPlaying, startAutoScroll, stopAutoScroll])
-
-  const handlePlayPause = () => {
-    setIsPlaying(!isPlaying)
-  }
 
   return (
 
@@ -117,24 +104,13 @@ const OceanDive: React.FC = () => {
           <PlayPauseControls>
 
           </PlayPauseControls>
-        {/* <PlayPauseButton onClick={handlePlayPause} >
-          {isPlaying ? (
-            <>
-              <Pause className="mr-2 h-4 w-4" /> Pause
-            </>
-          ) : (
-            <>
-              <Play className="mr-2 h-4 w-4" /> Play
-            </>
-          )}
-        </PlayPauseButton> */}
+
       </div>
       
 
 
 
          </div>
-    // </div>
   )
 }
 

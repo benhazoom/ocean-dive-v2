@@ -8,6 +8,7 @@ import Fish from './Fish'
 import Whale from './Whale'
 import PlayPauseButton from './ui/button'
 import useAutoScroll from '../hooks/useAutoScroll'
+import PlayPauseControls from "./ui/play-pause-controls"
 
 const OceanDive: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -16,6 +17,8 @@ const OceanDive: React.FC = () => {
     target: containerRef,
     offset: ['start', 'end start']
   })
+  const [autoScrollSpeed] = useState<number>(1);
+
 
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
 
@@ -26,12 +29,14 @@ const OceanDive: React.FC = () => {
     ['hsl(200, 100%, 70%)', 'hsl(200, 100%, 20%)']
   )
 
-  const { startAutoScroll, stopAutoScroll } = useAutoScroll(scrollYProgress);
+  const { startAutoScroll, stopAutoScroll } = useAutoScroll(scrollYProgress,autoScrollSpeed);
 
   useEffect(() => {
     if (isPlaying) {
+      console.log("start?")
       startAutoScroll()
     } else {
+      console.log("stop?")
       stopAutoScroll()
     }
   }, [isPlaying, startAutoScroll, stopAutoScroll])
@@ -107,10 +112,12 @@ const OceanDive: React.FC = () => {
         </video>
       </Bubble> */}
 
-
             {/* Play/Pause Button */}
             <div className="fixed bottom-4 left-4 z-10 flex gap-2">
-        <PlayPauseButton onClick={handlePlayPause}>
+          <PlayPauseControls onClick={handlePlayPause} >
+
+          </PlayPauseControls>
+        {/* <PlayPauseButton onClick={handlePlayPause} >
           {isPlaying ? (
             <>
               <Pause className="mr-2 h-4 w-4" /> Pause
@@ -120,7 +127,7 @@ const OceanDive: React.FC = () => {
               <Play className="mr-2 h-4 w-4" /> Play
             </>
           )}
-        </PlayPauseButton>
+        </PlayPauseButton> */}
       </div>
       
 

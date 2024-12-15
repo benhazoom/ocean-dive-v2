@@ -1,10 +1,12 @@
 import { useCallback, useRef } from 'react'
+import { useState } from "react"
 
-const useAutoScroll = (scrollYProgress: any) => {
+const useAutoScroll = (scrollYProgress: any,autoScrollSpeed:number) => {
   const animationRef = useRef<number>();
 
   // Method to start auto-scrolling the entire screen
   const startAutoScroll = useCallback(() => {
+    console.log("In AutoScroll - current speed "+autoScrollSpeed)
     const scrollStep = () => {
       // Get the current scroll position, total scrollable height, and viewport height of the window
       const { scrollY } = window;
@@ -13,7 +15,7 @@ const useAutoScroll = (scrollYProgress: any) => {
 
       // Check if the window has not scrolled to the bottom
       if (scrollY + innerHeight < scrollHeight) {
-        window.scrollBy(0, 1); // Scroll the screen down by 1px
+        window.scrollBy(0, autoScrollSpeed); // Scroll the screen down by 1px
 
         // Calculate the scroll progress as a value between 0 and 1
         const progress = scrollY / (scrollHeight - innerHeight);

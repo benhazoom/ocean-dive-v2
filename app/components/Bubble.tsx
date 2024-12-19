@@ -18,7 +18,7 @@ const Bubble: React.FC<BubbleProps> = ({ children, y, x, size = 'medium' }) => {
 
   return (
     <motion.div
-      className={`absolute bg-white bg-opacity-50 rounded-full p-4 backdrop-blur-md flex flex-col items-center justify-center ${sizeClasses[size]}`}
+      className={`absolute bg-white bg-opacity-50 rounded-full p-4 backdrop-blur-md flex flex-col items-center justify-center text-center ${sizeClasses[size]}`}
       style={{
         y,
         x,

@@ -73,7 +73,18 @@ const OceanDive: React.FC = () => {
 
 
       <Bubble y={useTransform(scrollYProgress, [0,0], ['220vh', '220vh'])} x="20vw" size="xl">
-        <h2 className="text-xl font-bold">Testing bubble3!</h2>
+        <h2 className="text-xl font-bold">Hooks used!</h2>
+          <br />
+          <br />
+        <ul>
+          <li><strong>useState:</strong> Manages component states like play/pause (`isPlaying`) and scroll speed (`autoScrollSpeed`).</li>
+          <br />
+          <li><strong>useEffect:</strong> Executes side effects to start or stop auto-scroll and clean up when the component unmounts.</li>
+          <br />
+          <li><strong>useCallback:</strong> Memoizes functions (`scrollStep`, `startAutoScroll`, `stopAutoScroll`) to optimize performance.</li>
+          <br />
+          <li><strong>useRef:</strong> Stores mutable references for animation frames (`animationRef`) and current scroll speed (`autoScrollSpeedRef`).</li>
+        </ul>
       </Bubble>
       <Bubble y={useTransform(scrollYProgress, [0,0], ['320vh', '320vh'])} x="60vw" size="xl">
         <h2 className="text-xl font-bold">Testing bubble4!</h2>

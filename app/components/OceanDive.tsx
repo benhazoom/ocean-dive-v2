@@ -86,7 +86,7 @@ const OceanDive: React.FC = () => {
           <li><strong>useRef:</strong> Stores mutable references for animation frames (`animationRef`) and current scroll speed (`autoScrollSpeedRef`).</li>
         </ul>
       </Bubble>
-      <Bubble y={useTransform(scrollYProgress, [0,0], ['320vh', '320vh'])} x="60vw" size="xl">
+      <Bubble y={useTransform(scrollYProgress, [0,0], ['320vh', '320vh'])} x="5vw" size="board">
         <h2 className="text-xl font-bold">Testing bubble4!</h2>
       </Bubble>
       <Bubble y={useTransform(scrollYProgress, [0,0], ['420vh', '420vh'])} x="20vw" size="xl">

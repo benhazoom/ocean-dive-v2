@@ -31,7 +31,7 @@ const PlayPauseControls: React.FC = () => {
 
   // Force autoScrollSpeed to be between 1-5
   const handleSlower = () => {
-    if (autoScrollSpeed > 1) setAutoScrollSpeed(autoScrollSpeed - 1);
+    if (autoScrollSpeed > 2) setAutoScrollSpeed(autoScrollSpeed - 1);
   };
 
   const handleFaster = () => {

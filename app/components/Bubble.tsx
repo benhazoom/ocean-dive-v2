@@ -1,11 +1,12 @@
 import React from 'react'
 import { motion, MotionValue } from 'framer-motion'
+import { u } from 'motion/react-client'
 
 interface BubbleProps {
   children: React.ReactNode
   y: MotionValue<string>
   x: string
-  size?: 'small' | 'medium' | 'large' | 'xl'
+  size?: 'small' | 'medium' | 'large' | 'xl' | 'board'
 }
 
 const Bubble: React.FC<BubbleProps> = ({ children, y, x, size = 'medium' }) => {
@@ -13,7 +14,8 @@ const Bubble: React.FC<BubbleProps> = ({ children, y, x, size = 'medium' }) => {
     small: 'h-[10rem] w-[10rem]',
     medium: 'h-[20rem] w-[20rem]',
     large:'h-[25rem] w-[25rem]',
-    xl:'h-[40rem] w-[40rem]'
+    xl:'h-[40rem] w-[40rem]',
+    board:'h-[60rem] w-[90vw]'
   }
 
   return (
@@ -25,7 +27,7 @@ const Bubble: React.FC<BubbleProps> = ({ children, y, x, size = 'medium' }) => {
         scale: 1,
         rotate: 0,
       }}
-      whileHover={{ scale: 1.1, rotate: 5 }}
+      whileHover={size != "board" ? { scale: 1.1, rotate: 5 }: undefined}
     >
       {children}
     </motion.div>

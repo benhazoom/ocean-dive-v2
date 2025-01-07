@@ -86,29 +86,14 @@ const OceanDive: React.FC = () => {
           <li><strong>useRef:</strong> Stores mutable references for animation frames (`animationRef`) and current scroll speed (`autoScrollSpeedRef`).</li>
         </ul>
       </Bubble>
+
+      <Bubble y={useTransform(scrollYProgress, [0,0], ['290vh', '290vh'])} x="2vw" size="large">
+        <h2 className="text-xl font-bold">Section 1 title</h2>
+      </Bubble>
       <Bubble y={useTransform(scrollYProgress, [0,0], ['320vh', '320vh'])} x="5vw" size="board">
-        <h2 className="text-xl font-bold">Testing bubble4!</h2>
-      </Bubble>
-      <Bubble y={useTransform(scrollYProgress, [0,0], ['420vh', '420vh'])} x="20vw" size="xl">
-        <h2 className="text-xl font-bold">Testing bubble5!</h2>
-      </Bubble>
-      <Bubble y={useTransform(scrollYProgress, [0,0], ['520vh', '520vh'])} x="60vw" size="xl">
-        <h2 className="text-xl font-bold">Testing bubble6!</h2>
+        <h2 className="text-xl font-bold">Section 1</h2>
       </Bubble>
 
-
-      {/* <Bubble y={useTransform(scrollYProgress, [0.3, 0.5], ['140vh', '60vh'])} x="70vw" size="medium">
-      <h2 className="text-xl font-bold">First article</h2>
-      <p className="text-sm">My bubble</p>      </Bubble>
-      <Bubble y={useTransform(scrollYProgress, [0.3, 0.5], ['140vh', '60vh'])} x="50vw" size="xl">
-        <img src="/placeholder.svg?height=150&width=150" alt="Ocean life" className="rounded-full" />
-      </Bubble>
-      <Bubble y={useTransform(scrollYProgress, [0.5, 0.7], ['160vh', '80vh'])} x="30vw" size="large">
-        <video width="200" height="150" controls>
-          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </Bubble> */}
 
             {/* Play/Pause Button */}
             <div className="fixed bottom-4 left-4 z-10 flex gap-2">

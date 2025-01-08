@@ -11,16 +11,16 @@ interface BubbleProps {
 
 const Bubble: React.FC<BubbleProps> = ({ children, y, x, size = 'medium' }) => {
   const sizeClasses = {
-    small: 'h-[10rem] w-[10rem]',
-    medium: 'h-[20rem] w-[20rem]',
-    large:'h-[25rem] w-[25rem]',
-    xl:'h-[40rem] w-[40rem]',
+    small: 'h-[9rem] w-[9rem]',
+    medium: 'h-[18rem] w-[18rem]',
+    large:'h-[22rem] w-[22rem]',
+    xl:'h-[36rem] w-[36rem]',
     board:'h-[60rem] w-[90vw]'
   }
 
   return (
     <motion.div
-      className={`absolute bg-white bg-opacity-50 rounded-full p-4 backdrop-blur-md flex flex-col items-center justify-center text-center ${sizeClasses[size]}`}
+      className={`bg-white bg-opacity-50 rounded-full p-4 backdrop-blur-md flex flex-col items-center justify-center text-center ${sizeClasses[size]}`}
       style={{
         y,
         x,

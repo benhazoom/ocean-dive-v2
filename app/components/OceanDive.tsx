@@ -7,6 +7,8 @@ import Fish from './Fish'
 import Whale from './Whale'
 import PlayPauseControls from "./ui/play-pause-controls"
 import { TreasureChest } from './TreasureChest'
+import BlueFish from './BlueFish'
+import LogoDisplay from './LogoDisplay'
 
 const OceanDive: React.FC = () => {
 
@@ -61,17 +63,42 @@ const OceanDive: React.FC = () => {
         <h3 className="font-bold">A parallax effect</h3>
         <p className="text-sm text-center">is when background and foreground elements move at different speeds as a user scrolls or interacts with a page. This creates an illusion of depth and 3D space, making the experience more dynamic and immersive.</p>
       </Bubble>
-      <Bubble y={useTransform(scrollYProgress, [0, 0], ['210vh', '210vh'])} x="60vw" size="large">
+      <Bubble y={useTransform(scrollYProgress, [0, 0], ['150vh', '150vh'])} x="60vw" size="large">
         <h2 className="text-md font-bold text-center">See how the background color darkens as we dive down ?</h2>
       </Bubble>
 
-      <div style={{ height: '600px' }}></div>
+      <div style={{ height: '2000px' }}></div>
+      <BlueFish>
+        <div className="max-w-2xl text-center">
+          <h1 className="text-4xl font-bold mb-4">More about my professional experience</h1>
+          <p className="text-lg">
+          And a secret treasure chest at the end of the page! 🎁
+          </p>
+        </div>
+      </BlueFish>
+      {/* <Whale text="More about my professional experience" imageSrc="\images\whale-no-bg.png" offsetY='mt-128 pt-128 ' /> */}
 
-      <Whale text="More about my professional experience" imageSrc="\images\whale-no-bg.png" offsetY='mt-128 pt-128 ' />
+
+
+      
+
+      <Bubble y={useTransform(scrollYProgress, [0, 0], ['10vh', '10vh'])} x="2vw" size="large">
+        <h2 className="text-xl font-bold">Technologies and languages</h2>
+      </Bubble>
+      <Bubble y={useTransform(scrollYProgress, [0, 0], ['30vh', '30vh'])} x="5vw" size="board">
+        <LogoDisplay/>
+      </Bubble>
 
 
 
-      <Bubble y={useTransform(scrollYProgress, [0, 0], ['220vh', '220vh'])} x="20vw" size="xl">
+      {/* Play/Pause Button */}
+      <div className="fixed bottom-4 left-4 z-10 flex gap-2">
+        <PlayPauseControls>
+
+        </PlayPauseControls>
+      </div>
+
+      <Bubble y={useTransform(scrollYProgress, [0, 0], ['460vh', '460vh'])} x="65vw" size="xl">
         <h2 className="text-xl font-bold">Hooks used!</h2>
         <br />
         <br />
@@ -85,22 +112,6 @@ const OceanDive: React.FC = () => {
           <li><strong>useRef:</strong> Stores mutable references for animation frames (`animationRef`) and current scroll speed (`autoScrollSpeedRef`).</li>
         </ul>
       </Bubble>
-
-      <Bubble y={useTransform(scrollYProgress, [0, 0], ['290vh', '290vh'])} x="2vw" size="large">
-        <h2 className="text-xl font-bold">Section 1 title</h2>
-      </Bubble>
-      <Bubble y={useTransform(scrollYProgress, [0, 0], ['300vh', '300vh'])} x="5vw" size="board">
-        <h2 className="text-xl font-bold">Section 1</h2>
-      </Bubble>
-
-
-
-      {/* Play/Pause Button */}
-      <div className="fixed bottom-4 left-4 z-10 flex gap-2">
-        <PlayPauseControls>
-
-        </PlayPauseControls>
-      </div>
 
       <div className="relative min-h-[5000px]"> {/* Ensure this container stretches the full height */}
         <Bubble y={useTransform(scrollYProgress, [0, 0], ['480vh', '480vh'])} x="25vw" size="medium">

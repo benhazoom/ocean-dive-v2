@@ -13,6 +13,7 @@
     "lucide-react": "^0.468.0",
     "motion": "^11.13.1",
     "next": "15.0.3",
+    "ocean-dive-v2": "file:",
     "react": "^18.3.0",
     "react-dom": "^18.3.0"
   },

@@ -27,12 +27,13 @@ const categories: CategoryType = {
     { name: "SQL", logo: "https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png" },
     { name: "MongoDB", logo: "https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg" },
     { name: "PostgreSQL", logo: "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" },
-    { name: "Prisma", logo: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Prisma_Logo_Primary.svg" }
+    { name: "Prisma", logo: "https://cdn.icon-icons.com/icons2/3914/PNG/512/prisma_logo_icon_248778.png" }
   ],
   Tools: [
     { name: "Postman", logo: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Postman_%28software%29.png" },
     { name: "Git", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg" },
-    { name: "AWS", logo: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" }
+    { name: "AWS", logo: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" },
+    { name: "Vsc", logo: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" }
   ]
 };
 
@@ -45,7 +46,7 @@ const LogoDisplay = () => {
           <div className="flex flex-wrap gap-6">
             {categories[category].map((item) => (
               <div key={item.name} className="text-center w-24">
-                <img src={item.logo} alt={item.name} className="max-w-full h-auto mx-auto mb-2" />
+                <img src={item.logo} alt={item.name} className="w-16 h-16 object-contain mx-auto mb-2" />
                 <p className="text-sm font-medium">{item.name}</p>
               </div>
             ))}

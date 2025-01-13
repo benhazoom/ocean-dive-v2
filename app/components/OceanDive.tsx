@@ -9,6 +9,7 @@ import PlayPauseControls from "./ui/play-pause-controls"
 import { TreasureChest } from './TreasureChest'
 import BlueFish from './BlueFish'
 import LogoDisplay from './LogoDisplay'
+import ProjectDisplay from './ProjectDisplay'
 
 const OceanDive: React.FC = () => {
 
@@ -56,10 +57,11 @@ const OceanDive: React.FC = () => {
       <Bubble y={useTransform(scrollYProgress, [0.0, 0.4], ['30vh', '10vh'])} x="70vw" size="large">
         <h2 className="text-xl font-bold">Welcome to the Ocean!</h2>
         <p className="text-sm">Scroll down to explore the depths...</p>
+        <p className="text-sm">Or use the play button to auto-scroll</p>
       </Bubble>
       <Bubble y={useTransform(scrollYProgress, [0.0, 0.4], ['65vh', '0vh'])} x="50vw" size="medium">
         <h3 className="font-bold">A parallax effect</h3>
-        <p className="text-sm text-center">is when background and foreground elements move at different speeds as a user scrolls or interacts with a page. This creates an illusion of depth and 3D space, making the experience more dynamic and immersive.</p>
+        <p className="text-sm text-center">Is when background and foreground elements move at different speeds as a user scrolls or interacts with a page. This creates an illusion of depth and 3D space, making the experience more dynamic and immersive.</p>
       </Bubble>
 
       {/* Second Bubble Layer */}
@@ -91,7 +93,7 @@ const OceanDive: React.FC = () => {
 
       <Bubble y={useTransform(scrollYProgress, [0.1, 0.5], ['170vh', '110vh'])} x="53vw" size="large">
         <h2 className="text-md font-bold text-center">See how the background color darkens as we dive down ?</h2>
-        <h3 className="text-center">this is thanks to react framer motion, a powerful open-source library for adding animations and gestures to React applications.</h3>
+        <h3 className="text-center">This is thanks to react framer motion, a powerful open-source library for adding animations and gestures to React applications.</h3>
       </Bubble>
 
       <div style={{ height: '2000px' }}></div>
@@ -108,7 +110,7 @@ const OceanDive: React.FC = () => {
 
 
 
-
+      {/* Technologies and languages */}
       <Bubble y={useTransform(scrollYProgress, [0, 0], ['10vh', '10vh'])} x="2vw" size="large">
         <h2 className="text-xl font-bold">Technologies and languages</h2>
       </Bubble>
@@ -116,6 +118,18 @@ const OceanDive: React.FC = () => {
         <LogoDisplay />
       </Bubble>
 
+      {/* Projects */}
+      <Bubble y={useTransform(scrollYProgress, [0, 0], ['160vh', '160vh'])} x="2vw" size="large">
+        <h2 className="text-xl font-bold">Projects</h2>
+      </Bubble>
+      <Bubble y={useTransform(scrollYProgress, [0, 0], ['180vh', '180vh'])} x="5vw" size="board">
+        <ProjectDisplay
+          title="Ecommerce Website"
+          img="images\logos\github-mark-white.png"
+          stack={["MongoDB", "Express.js", "React", "Node.js"]}
+          link="https://project-link.com"
+        />
+      </Bubble>
 
 
       {/* Play/Pause Button */}
@@ -127,8 +141,6 @@ const OceanDive: React.FC = () => {
 
       <Bubble y={useTransform(scrollYProgress, [0, 0], ['460vh', '460vh'])} x="65vw" size="xl">
         <h2 className="text-xl font-bold">Hooks used!</h2>
-        <br />
-        <br />
         <ul>
           <li><strong>useState:</strong> Manages component states like play/pause (`isPlaying`) and scroll speed (`autoScrollSpeed`).</li>
           <br />

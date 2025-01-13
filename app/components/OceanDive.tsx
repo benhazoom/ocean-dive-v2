@@ -48,23 +48,50 @@ const OceanDive: React.FC = () => {
 
       {/* Single Fish */}
       <Fish />
-      {/* Bubbles */}
-      {/* doing motion-parallex transformation on the y-axis when scrollYProgress is between 0.3 and 0.5 of the screen height */}
-      {/* the transition will be apllaied from 20 viewport height to 20 20 viewport height because we dont want big bubbles to move*/}
-
-      <Bubble y={useTransform(scrollYProgress, [0, 0], ['10vh', '10vh'])} x="15vw" size="xl">
+      {/* First Bubble Layer */}
+      <Bubble y={useTransform(scrollYProgress, [0, 0], ['3vh', '3vh'])} x="15vw" size="xl">
         <h2 className="text-xl font-bold">A little about me</h2>
+        <p>add more info</p>
       </Bubble>
       <Bubble y={useTransform(scrollYProgress, [0.0, 0.4], ['30vh', '10vh'])} x="70vw" size="large">
         <h2 className="text-xl font-bold">Welcome to the Ocean!</h2>
         <p className="text-sm">Scroll down to explore the depths...</p>
       </Bubble>
-      <Bubble y={useTransform(scrollYProgress, [0.0, 0.4], ['70vh', '0vh'])} x="50vw" size="medium">
+      <Bubble y={useTransform(scrollYProgress, [0.0, 0.4], ['65vh', '0vh'])} x="50vw" size="medium">
         <h3 className="font-bold">A parallax effect</h3>
         <p className="text-sm text-center">is when background and foreground elements move at different speeds as a user scrolls or interacts with a page. This creates an illusion of depth and 3D space, making the experience more dynamic and immersive.</p>
       </Bubble>
-      <Bubble y={useTransform(scrollYProgress, [0, 0], ['150vh', '150vh'])} x="60vw" size="large">
+
+      {/* Second Bubble Layer */}
+      <Bubble y={useTransform(scrollYProgress, [0.0, 0.4], ['120vh', '100vh'])} x="15vw" size="xl">
+        <h1 className="text-2xl font-bold">Web Development</h1>
+        <p>For me web development is about connecting people by bridging gaps and creating opportunities for interaction, collaboration, and communities.
+          web development transforms the digital space into a medium for connection.
+          It empowers individuals and organizations to share ideas, build relationships, and break down barriers of distance and time.
+          And im proud to be a part of this movement.
+        </p>
+      </Bubble>
+
+      //target="_blank" is to open the link in a new tab
+      //rel="noopener noreferrer" is a security measure to prevent the new tab from accessing the window.opener property
+      <Bubble y={useTransform(scrollYProgress, [0, 0.4], ['155vh', '75vh'])} x="75vw" size="large">
+        <h2 className="text-md font-bold text-center">We can connect on one of these platforms</h2>
+        <div className="flex justify-center space-x-4">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <img src="/images/logos/github-mark.png" alt="GitHub" className="w-12 h-12" />
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <img src="/images/logos/Linkedin.png" alt="LinkedIn" className="w-12 h-12" />
+          </a>
+          <a href="mailto:benhazoom12@gmail.com" target="_blank" rel="noopener noreferrer">
+            <img src="/images/logos/Gmail.png" alt="Gmail" className="w-12 h-12" />
+          </a>
+        </div>
+      </Bubble>
+
+      <Bubble y={useTransform(scrollYProgress, [0.1, 0.5], ['170vh', '110vh'])} x="53vw" size="large">
         <h2 className="text-md font-bold text-center">See how the background color darkens as we dive down ?</h2>
+        <h3 className="text-center">this is thanks to react framer motion, a powerful open-source library for adding animations and gestures to React applications.</h3>
       </Bubble>
 
       <div style={{ height: '2000px' }}></div>
@@ -72,7 +99,7 @@ const OceanDive: React.FC = () => {
         <div className="max-w-2xl text-center">
           <h1 className="text-4xl font-bold mb-4">More about my professional experience</h1>
           <p className="text-lg">
-          And a secret treasure chest at the end of the page! 🎁
+            And a secret treasure chest at the end of the page! 🎁
           </p>
         </div>
       </BlueFish>
@@ -80,13 +107,13 @@ const OceanDive: React.FC = () => {
 
 
 
-      
+
 
       <Bubble y={useTransform(scrollYProgress, [0, 0], ['10vh', '10vh'])} x="2vw" size="large">
         <h2 className="text-xl font-bold">Technologies and languages</h2>
       </Bubble>
       <Bubble y={useTransform(scrollYProgress, [0, 0], ['30vh', '30vh'])} x="5vw" size="board">
-        <LogoDisplay/>
+        <LogoDisplay />
       </Bubble>
 
 
